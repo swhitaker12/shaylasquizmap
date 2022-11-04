@@ -28,7 +28,7 @@
   /* Set up the initial map center and zoom level */
   var map = L.map('map', {
     center: [41.77, -72.69], // EDIT coordinates to re-center map
-    zoom: 5,  // EDIT from 1 (zoomed out) to 18 (zoomed in)
+    zoom: 6,  // EDIT from 1 (zoomed out) to 18 (zoomed in)
     scrollWheelZoom: true
   });
 
@@ -40,6 +40,11 @@
         <a href="https://carto.com/attribution">CARTO</a>'
   }).addTo(map);
 
+    var Esri_WorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+	attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+});
+    
+  L.marker([41.77, -72.69]).addTo(map)
   /* Display a point marker with pop-up text */
   L.marker([41.74773228845831, -72.69082566735504]).addTo(map) // EDIT marker coordinates
   .bindPopup("Insert pop-up text here"); // EDIT pop-up text message
