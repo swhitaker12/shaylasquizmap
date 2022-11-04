@@ -28,23 +28,14 @@
   /* Set up the initial map center and zoom level */
   var map = L.map('map', {
     center: [41.77, -72.69], // EDIT coordinates to re-center map
-    zoom: 8,  // EDIT from 1 (zoomed out) to 18 (zoomed in)
+    zoom: 10,  // EDIT from 1 (zoomed out) to 18 (zoomed in)
     scrollWheelZoom: true
   });
 
-  /* display basemap tiles -- see others at https://leaflet-extras.github.io/leaflet-providers/preview/ */
-  L.tileLayer(
-    'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-      attribution: '&copy; <a href="https://osm.org/copyright">\
-        OpenStreetMap</a> contributors, &copy;\
-        <a href="https://carto.com/attribution">CARTO</a>'
-  }).addTo(map);
-
-   <head>
-  ...
-  <script src="http://unpkg.com/leaflet@latest/dist/leaflet.js"></script>
-  <script src="js/leaflet-providers.js"></script>
-</head>
+  /* display basemap tiles -- see others at https://leaflet-extras.github.io/leaflet-providers/preview/ */   
+L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+	attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+}).addTo(map);;
     
   L.marker([41.77, -72.69]).addTo(map)
   /* Display a point marker with pop-up text */
